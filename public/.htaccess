@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirection de toute requête vers index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # Si mod_rewrite n'est pas disponible, retourner une erreur 500
+    ErrorDocument 500 "Le serveur ne prend pas en charge la réécriture d'URL"
+</IfModule>

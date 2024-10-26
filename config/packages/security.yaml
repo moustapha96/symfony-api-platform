@@ -8,7 +8,7 @@ security:
         users:
             entity:
                 class: App\Entity\User
-                property: username
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -20,7 +20,7 @@ security:
             provider: users
             json_login:
                 check_path: /api/login
-                username_path: username
+                username_path: email
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
@@ -32,8 +32,24 @@ security:
 
     access_control:
         - { path: ^/$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/doc, roles: PUBLIC_ACCESS }
         - { path: /api/login, roles: PUBLIC_ACCESS }
-        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: /api/password-reset , roles: PUBLIC_ACCESS }
+        - { path: /api/create-users, roles: PUBLIC_ACCESS }
+        - { path: /api/liste-institut, roles: PUBLIC_ACCESS }
+        - { path: /api/publishable-key, roles: PUBLIC_ACCESS }
+        - { path: /api/create-payment-intent, roles: PUBLIC_ACCESS }
+        
+        - { path: /api/users, roles: PUBLIC_ACCESS }
+        - { path: /api/create-institut, roles: PUBLIC_ACCESS }
+        - { path: /api/create-demandeur, roles: PUBLIC_ACCESS }
+        # - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+          
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: ["ROLE_ADMIN", "ROLE_ALLOWED_TO_SWITCH"]
+        ROLE_ADMIN: ROLE_ADMIN
+        ROLE_INSTITUT: ROLE_INSTITUT
+        ROLE_DEMANDEUR: ROLE_DEMANDEUR
 
 when@test:
     security:

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Résultat de votre Demande</title>
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+				color: #333;
+				margin: 0;
+				padding: 20px;
+			}
+			.container {
+				max-width: 600px;
+				margin: auto;
+				background: white;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+			.header {
+				text-align: center;
+				background-color: #ff0000; /* Rouge */
+				color: white;
+				padding: 10px 0;
+			}
+			.footer {
+				text-align: center;
+				font-size: 12px;
+				color: #777;
+				margin-top: 20px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>AuthenticPage</h1>
+			</div>
+
+			<p>Bonjour
+				{{ demandeurName }},</p>
+			<p>Nous vous informons que le résultat de votre demande est désormais disponible.</p>
+
+			<p>
+				<strong>Statut de la Demande :</strong>
+				{{ statutDemande }}</p>
+			<p>
+				<strong>Détails :</strong>
+				{{ detailsDemande }}</p>
+
+			<p>Merci de votre confiance.</p>
+
+			<div class="footer">
+				<p>Cordialement,<br>L'équipe de votre application</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Invitation à s'inscrire</title>
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+				color: #333;
+				margin: 0;
+				padding: 20px;
+			}
+			.container {
+				max-width: 600px;
+				margin: auto;
+				background: white;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+			.header {
+				text-align: center;
+				background-color: #ff0000; /* Rouge */
+				color: white;
+				padding: 10px 0;
+			}
+			.logo {
+				width: 100px; /* Ajustez la taille selon vos besoins */
+			}
+			.footer {
+				text-align: center;
+				font-size: 12px;
+				color: #777;
+				margin-top: 20px;
+			}
+			a.button {
+				display: inline-block;
+				background-color: #0000ff; /* Bleu */
+				color: white;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<img src="{{ asset('logo/logo_528.png') }}" alt="AuthenticPage Logo" class="logo">
+				<h1>AuthenticPage</h1>
+			</div>
+
+			<p>Bonjour
+				{{ nameInstitut }},</p>
+			<p>Vous avez été invité à vous inscrire sur notre plateforme pour valider une demande en attente.</p>
+			<p>Veuillez cliquer sur le lien suivant pour compléter votre inscription et valider la demande :</p>
+			<a href="{{ inscriptionUrl }}">S'inscrire</a>
+			<p>Merci,</p>
+
+			<p>Merci de votre confiance.</p>
+
+			<div class="footer">
+				<p>Cordialement,<br>L'équipe de votre application</p>
+			</div>
+		</div>
+	</body>
+</html>

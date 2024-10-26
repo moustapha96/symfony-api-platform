@@ -14,9 +14,7 @@ class AppFixtures extends Fixture
     public function __construct(
         private readonly SluggerInterface $slugger,
         private readonly UserPasswordHasherInterface $passwordHasher
-    )
-    {
-    }
+    ) {}
 
     public function load(ObjectManager $manager): void
     {
@@ -30,21 +28,6 @@ class AppFixtures extends Fixture
 
         $manager->persist($user);
 
-        for ($i = 1; $i <= 10; $i++) {
-            $article = new Article();
-
-            $title = "Article $i";
-            $slug = $this->slugger->slug($title)->lower();
-
-            $article->setTitle($title);
-            $article->setSlug($slug);
-            $article->setDescription("Description $i");
-            $article->setUser($user);
-            $article->setCreatedAt(new \DateTimeImmutable());
-            $article->setPublishedAt(new \DateTimeImmutable());
-
-            $manager->persist($article);
-        }
 
         $manager->flush();
     }

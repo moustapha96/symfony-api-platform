@@ -8,5 +8,5 @@ api_platform:
         name: Authorization
         type: header
 
-  title: 'Pentiminax API'
+  title: 'Authenticate Page API'
   version: '1.0.0'
